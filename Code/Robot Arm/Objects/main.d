@@ -12,3 +12,4 @@
 .\objects\main.o: adc.h
 .\objects\main.o: lcd.h
 .\objects\main.o: motor.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

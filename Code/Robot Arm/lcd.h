@@ -22,6 +22,7 @@
 #define LCD_CLR 	0x01 // Home and clear LCD
 #define LCD_LN1 	0x80 // Set DDRAM to start of line 1
 #define LCD_LN2 	0xC0 // Set DDRAM to start of line 2
+#define LCD_CB		0x0C
 
 // Control signal manipulation for LCDs on 352/384/287 board
 // 		RS: 	PB0
@@ -35,6 +36,6 @@
 void lcd_init(void);
 void dataToLCD(uint8_t data);
 void commandToLCD(uint8_t data);
-void stringToLCD(uint8_t *ptr);
+void stringToLCD(uint8_t *ptr, uint8_t line);
 uint8_t hexToAscii(uint8_t hex);
 uint32_t printHexToLCD(uint32_t hex, uint8_t line);

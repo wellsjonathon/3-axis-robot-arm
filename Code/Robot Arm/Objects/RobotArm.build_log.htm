@@ -22,26 +22,15 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 D:\Google Drive\University\Engineering\ENEL\387\Project\Code\Robot Arm\RobotArm.uvprojx
-Project File Date:  04/06/2018
+Project File Date:  04/09/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling main.c...
-main.c(48): warning:  #940-D: missing return statement at end of non-void function "printHexToLCD" 
-  }
-main.c(117): warning:  #177-D: variable "i"  was declared but never referenced
-  	int i = 0;
-main.c(118): warning:  #177-D: variable "mode"  was declared but never referenced
-  	uint8_t mode = 0;
-main.c(119): warning:  #177-D: variable "ch1"  was declared but never referenced
-  	uint16_t ch1 = 0;
-main.c(120): warning:  #177-D: variable "ch2"  was declared but never referenced
-  	uint16_t ch2 = 0;
-main.c: 5 warnings, 0 errors
+compiling interrupts.c...
 linking...
-Program Size: Code=2444 RO-data=320 RW-data=8 ZI-data=1632  
-".\Objects\RobotArm.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=4520 RO-data=320 RW-data=40 ZI-data=1632  
+".\Objects\RobotArm.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -66,13 +55,13 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md_vl.s
       Source file:   Device\Source\system_stm32f10x.c
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Include file:  RTE_Driver\Config\RTE_Device.h
 
    * Component: ARM::CMSIS:CORE:5.0.2
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

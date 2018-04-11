@@ -36,7 +36,7 @@ void adc_init(void) {
 	ADC1->CR1 |= ADC_CR1_SCAN;
 	
 	// Select sample rate
-	ADC1->SMPR2 |= ADC_SMPR2_SMP1 
+	ADC1->SMPR2 |= ADC_SMPR2_SMP1
 							 | ADC_SMPR2_SMP2;
 	
 	// Select sequence that channels will be read and converted
@@ -60,10 +60,12 @@ void dma_init(volatile uint16_t *destination) {
 	
 	// Initiliaze channel 1
 	// Circular mode, memory increment, 16-bit memory and peripheral size
+	// Transfer complete interrupt
 	DMA1_Channel1->CCR |= DMA_CCR1_CIRC 
 											| DMA_CCR1_MINC
 											| DMA_CCR1_MSIZE_0 
-											| DMA_CCR1_PSIZE_0;
+											| DMA_CCR1_PSIZE_0
+											| DMA_CCR1_TCIE;
 	
 	// Enable channel 1
 	DMA1_Channel1->CCR |= DMA_CCR1_EN;

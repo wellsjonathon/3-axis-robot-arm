@@ -23,7 +23,7 @@ void clocks_init(void) {
 	
 	// Set output MCO as PLL/2
 	// Set PLL input as PLLMUL X3, PREDIV1 as PLL input
-	RCC->CFGR = 0x0705002;
+	RCC->CFGR = 0x07050002;
 	
 	// Turn on PLL, HSE, HSI
 	RCC->CR = 0x01010081;
@@ -93,6 +93,7 @@ void input_init(void) {
 							& ~GPIO_CRH_CNF12_1 & ~GPIO_CRH_CNF13_0;
 	GPIOD->CRL |= GPIO_CRL_CNF2_1;
 	GPIOD->CRL &= ~GPIO_CRL_CNF2_0;
+	GPIOD->ODR &= ~GPIO_ODR_ODR2;
 	
 	GPIOA->BSRR |= LED1_OFF | LED2_OFF | LED3_OFF | LED4_OFF;
 }

@@ -30,3 +30,23 @@ void extio_init(void) {
 	// Unmask EXTI 0 as interrupt source in NVIC
 	NVIC->ISER[0] |= NVIC_ISER_SETENA_6;
 }
+
+void interrupt_init(void) {
+	// Initialize DMA interrupt
+	// Enable AHB clock for DMA if not already
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+	NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+	NVIC_SetPriority(DMA1_Channel1_IRQn, 1);
+	
+	// Initialize EXTI2 interrupt for speed button PD2
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	// Select Port D as EXTI2 source
+	AFIO->EXTICR[2] |= AFIO_EXTICR1_EXTI2_PD;
+	// Unmask PD2 as interrupt source
+	EXTI->IMR |= EXTI_IMR_MR2;
+	// Select falling edge as trigger
+	EXTI->RTSR |= EXTI_RTSR_TR2;
+	// Unmask EXTI2 as interrupt source in NVIC
+	NVIC_EnableIRQ(EXTI2_IRQn);
+	NVIC_SetPriority(EXTI2_IRQn, 2);
+}

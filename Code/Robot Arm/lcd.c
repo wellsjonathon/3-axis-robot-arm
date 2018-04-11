@@ -31,6 +31,7 @@ void lcd_init(void) {
 	commandToLCD(LCD_DCB);
 	commandToLCD(LCD_MCR);
 	//commandToLCD(LCD_MCR);
+	commandToLCD(LCD_CB);
 }
 
 void commandToLCD(uint8_t data) {
@@ -57,7 +58,8 @@ void dataToLCD(uint8_t data) {
 	delay(80000);
 }
 
-void stringToLCD(uint8_t *ptr) {
+void stringToLCD(uint8_t *ptr, uint8_t line) {
+	commandToLCD(line);
 	while (*ptr) {
 		dataToLCD(*ptr);
 		ptr++;
@@ -80,8 +82,8 @@ uint32_t printHexToLCD(uint32_t hex, uint8_t line) {
 	uint8_t beforeHex[] = "0x";
 	uint8_t *beforeHexPtr = beforeHex;
 	
-	commandToLCD(line);
-	stringToLCD(beforeHexPtr);
+	//commandToLCD(line);
+	stringToLCD(beforeHexPtr, line);
 	
 	for (i = 8; i > 0; i--) {
 		temp = hex >> count;

@@ -37,17 +37,35 @@
 #define A2_STEP_ON            ((uint32_t)0x00004000)
 #define A2_STEP_OFF           ((uint32_t)0x40000000)
 
+// ----------------
+// GLOBAL CONSTANTS
+// ----------------
+#define MOTOR_SPEED_LEVELS 3
+#define MOTOR_SPEED_1 150
+#define MOTOR_SPEED_2 100
+#define MOTOR_SPEED_3 50
+#define A1_HEIGHT 11 // 10.5cm from ground to axle, round up
+#define A1_LENGTH 17 // 17cm joint to joint
+#define A2_LENGTH 27 // 27cm joint to joint
+// ----------------
+
 void motors_init(void);
+void timers_init(void);
+void timers_enable(void);
+void timers_disable(void);
+
+uint8_t motors_change_speed(void);
 void motors_all_hold(void);
+uint8_t motors_get_speed(void);
 
 void motors_b_clockwise(void);
 void motors_b_counterclockwise(void);
-void motors_b_move(uint32_t dir, uint16_t steps);
+void motors_b_move(uint32_t dir, float steps);
 
 void motors_a1_extend(void);
 void motors_a1_retract(void);
-void motors_a1_move(uint32_t dir, uint16_t steps);
+void motors_a1_move(uint32_t dir, float steps);
 
 void motors_a2_extend(void);
 void motors_a2_retract(void);
-void motors_a2_move(uint32_t dir, uint16_t steps);
+void motors_a2_move(uint32_t dir, float steps);

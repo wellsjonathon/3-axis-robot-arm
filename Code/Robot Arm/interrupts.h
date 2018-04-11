@@ -9,3 +9,4 @@
  
 void systick_init(void);
 void extio_init(void);
+void interrupt_init(void);
